@@ -12,7 +12,7 @@ export class FormExampleComponent {
   username = '';
 
   onMyChange(str: string) {
-    // this.username = str;
+    this.username = str;
     console.log(this.username);
   }
 }

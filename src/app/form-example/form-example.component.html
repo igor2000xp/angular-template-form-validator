@@ -1,6 +1,6 @@
 <p>form-example works!</p>
 
-<input type="text" [ngModel]="username" (onChange)="onMyChange($event)" />
+<input type="text" [ngModel]="username" (ngModelChange)="onMyChange($event)" />
 
 <div>
   <pre>{{ username | json }}</pre>
