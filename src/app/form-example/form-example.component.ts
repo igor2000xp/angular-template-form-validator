@@ -11,8 +11,8 @@ import { FormsModule } from '@angular/forms';
 export class FormExampleComponent {
   username = '';
 
-  onMyChange(str: string) {
-    this.username = str;
-    console.log(this.username);
-  }
+  // onMyChange(str: string) {
+  //   this.username = str;
+  //   console.log(this.username);
+  // }
 }
