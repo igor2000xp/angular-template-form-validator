@@ -1,14 +1,14 @@
 <p>form-example works!</p>
 
 <form (submit)="onSubmit($event)">
-  <input type="text" [(ngModel)]="user.name" name="user-name" placeholder="name"/>
-  <input type="text" [(ngModel)]="user.fullName" name="user-fullname" placeholder="fullName">
+  <input type="text" [(ngModel)]="user.name" name="user-name" placeholder="name" />
+  <input type="text" [(ngModel)]="user.fullName" name="user-fullname" placeholder="fullName" />
   <div ngModelGroup="address">
-    <input type="text" [(ngModel)]="user.address.street" name="address-sreet" placeholder="address">
-    <input type="text" name="address-building" [(ngModel)]="user.address.bilding" placeholder="building">
+    <input type="text" [(ngModel)]="user.address.street" name="address-sreet" placeholder="address" />
+    <input type="text" name="address-building" [(ngModel)]="user.address.bilding" placeholder="building" />
   </div>
   <div>
-    <input type="text" placeholder="pet name" [(ngModel)]="petName" [ngModelOptions]="{standalone: true}">
+    <input type="text" placeholder="pet name" [(ngModel)]="petName" [ngModelOptions]="{ standalone: true }" />
   </div>
   <button type="submit">Submit</button>
 </form>
@@ -17,7 +17,6 @@
   <pre>{{ user | json }}</pre>
 </div>
 
-
 <div>
-  {{petName}}
+  {{ petName }}
 </div>

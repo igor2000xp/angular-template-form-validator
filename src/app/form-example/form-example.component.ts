@@ -17,8 +17,8 @@ export class FormExampleComponent {
     address: {
       street: '',
       bilding: 0,
-    }
-  }
+    },
+  };
 
   petName = '';
 
@@ -28,7 +28,7 @@ export class FormExampleComponent {
   // }
   onSubmit(userForm: SubmitEvent) {
     console.log(userForm.target);
-    // @ts-ignore
+    // @ts-expect-error: not support
     console.log(window.ng.getDirectives(userForm.target)[2].value);
   }
 }
