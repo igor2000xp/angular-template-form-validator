@@ -1,7 +1,15 @@
 <p>form-example works!</p>
 
-<input type="text" [(ngModel)]="username" />
+<form (submit)="onSubmit($event)">
+  <input type="text" [(ngModel)]="user.name" name="user-name" placeholder="name"/>
+  <input type="text" [(ngModel)]="user.fullName" name="user-fullname" placeholder="fullName">
+  <div ngModelGroup="address">
+    <input type="text" [(ngModel)]="user.address.street" name="address-sreet" placeholder="address">
+    <input type="text" name="address-building" [(ngModel)]="user.address.bilding" placeholder="building">
+  </div>
+  <button type="submit">Submit</button>
+</form>
 
 <div>
-  <pre>{{ username | json }}</pre>
+  <pre>{{ user | json }}</pre>
 </div>

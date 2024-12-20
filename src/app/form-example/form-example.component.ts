@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,10 +9,24 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './form-example.component.css',
 })
 export class FormExampleComponent {
-  username = '';
+  // username = '';
+
+  user = {
+    name: '',
+    fullName: '',
+    address: {
+      street: '',
+      bilding: 0,
+    }
+  }
 
   // onMyChange(str: string) {
   //   this.username = str;
   //   console.log(this.username);
   // }
+  onSubmit(userForm: SubmitEvent) {
+    console.log(userForm.target);
+    // @ts-ignore
+    console.log(window.ng.getDirectives(userForm.target)[2].value);
+  }
 }
