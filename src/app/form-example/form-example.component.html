@@ -7,9 +7,17 @@
     <input type="text" [(ngModel)]="user.address.street" name="address-sreet" placeholder="address">
     <input type="text" name="address-building" [(ngModel)]="user.address.bilding" placeholder="building">
   </div>
+  <div>
+    <input type="text" placeholder="pet name" [(ngModel)]="petName" [ngModelOptions]="{standalone: true}">
+  </div>
   <button type="submit">Submit</button>
 </form>
 
 <div>
   <pre>{{ user | json }}</pre>
+</div>
+
+
+<div>
+  {{petName}}
 </div>

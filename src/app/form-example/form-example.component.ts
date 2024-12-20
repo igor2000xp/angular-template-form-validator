@@ -20,6 +20,8 @@ export class FormExampleComponent {
     }
   }
 
+  petName = '';
+
   // onMyChange(str: string) {
   //   this.username = str;
   //   console.log(this.username);
