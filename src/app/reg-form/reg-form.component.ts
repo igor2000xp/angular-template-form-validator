@@ -16,6 +16,7 @@ export class RegFormComponent {
     lastName: '',
     password: '',
   };
+  confirmPassword = '';
 
   // onSubmit(form: SubmitEvent): void {
   //   console.log('You submitted value:', form);
