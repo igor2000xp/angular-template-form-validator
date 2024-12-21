@@ -17,19 +17,31 @@ export class RegFormComponent {
     email: '',
     lastName: '',
     password: '',
+    confirmPassword: '',
   };
-  confirmPassword = '';
+
+  // It.s important for different reasons testing.
+
+  // confirmPassword = '';
 
   // onSubmit(form: SubmitEvent): void {
   //   console.log('You submitted value:', form);
   //   // @ts-expect-error: ng is not defined
   //   console.log(window.ng.getDirectives(form.target));
   // }
-  onSubmit(form: NgForm): void {
-    console.log('You submitted value:', form);
+  // asdA123!
+  onSubmit(event: Event, form: NgForm): void {
+    event.preventDefault(); // Prevent default action for the submit event;
+    // console.log('You submitted value:', form);
+
+    // That is the way to get the value of the form. And separate the password and confirmPassword.
+    const { confirmPassword, password, ...restForm } = form.value;
+    console.log('confirmPassword: ', confirmPassword);
+    console.log('password: ', password);
+    console.log('restForm: ', restForm);
   }
 
-  trackByFn(index: number, item: { message: string }): string {
-    return item.message;
-  }
+  // trackByFn(index: number, item: { message: string }): string {
+  //   return item.message;
+  // }
 }

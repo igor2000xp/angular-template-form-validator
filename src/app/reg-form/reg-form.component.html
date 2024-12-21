@@ -1,5 +1,5 @@
 <h2>Template-driven form with validation</h2>
-<form #form="ngForm" (submit)="onSubmit(form)">
+<form #form="ngForm" (submit)="onSubmit($event, form)">
   <div>
     <input
       #firstName="ngModel"
@@ -63,20 +63,23 @@
   <div>
     <input
       type="password"
-      [(ngModel)]="confirmPassword"
+      [(ngModel)]="user.confirmPassword"
       #passConfirm="ngModel"
-      name="confirm-password"
+      name="confirmPassword"
       placeholder="Confirm Password"
       required />
   </div>
 
   <div class="error">
-    @if (passConfirm.value !== passCheck.value && passConfirm.touched) {
+    @if (passConfirm.value !== passCheck.value && passConfirm.touched && passCheck.hasError('required')) {
       <span>* Password and Confirm Password must be equal</span>
     }
   </div>
 
   <div>
-    <button type="submit">Submit</button>
+    <span>{{ form.invalid }}</span>
+  </div>
+  <div>
+    <button type="submit" [disabled]="form.invalid || passConfirm.value !== passCheck.value">Submit</button>
   </div>
 </form>
