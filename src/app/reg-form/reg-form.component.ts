@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { PassValidatorDirective } from '../share/directives/pass-validator.directive';
 
 @Component({
   selector: 'app-reg-form',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, PassValidatorDirective],
   templateUrl: './reg-form.component.html',
-  styleUrl: './reg-form.component.css'
+  styleUrl: './reg-form.component.css',
 })
 export class RegFormComponent {
   user = {
@@ -14,10 +15,14 @@ export class RegFormComponent {
     email: '',
     lastName: '',
     password: '',
-  }
+  };
 
-  onSubmit(form: SubmitEvent): void {
+  // onSubmit(form: SubmitEvent): void {
+  //   console.log('You submitted value:', form);
+  //   // @ts-expect-error: ng is not defined
+  //   console.log(window.ng.getDirectives(form.target));
+  // }
+  onSubmit(form: NgForm): void {
     console.log('You submitted value:', form);
   }
-
 }

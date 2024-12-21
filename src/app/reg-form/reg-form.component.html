@@ -1,6 +1,6 @@
 <p>reg-form works!</p>
 
-<form (submit)="onSubmit($event)">
+<form #form="ngForm" (submit)="onSubmit(form)">
   <div>
     <input type="text" placeholder="First Name" name="name" required [(ngModel)]="user.name" />
   </div>
@@ -8,8 +8,18 @@
     <input type="email" placeholder="Email" name="email" required [(ngModel)]="user.email" />
   </div>
   <div>
-    <input type="password" placeholder="Password" name="password" required [(ngModel)]="user.password" />
+    <input
+      type="password"
+      #passCheck="ngModel"
+      placeholder="Password"
+      name="password"
+      required
+      appPassValidator
+      [(ngModel)]="user.password" />
   </div>
+  @if (passCheck.hasError('required') && passCheck.touched) {
+    <span class="error">* Password must be more than 6 symbols</span>
+  }
   <div>
     <button type="submit">Submit</button>
   </div>
