@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { PassValidatorDirective } from '../share/directives/pass-validator.directive';
+import { NameValidatorDirective } from '../share/directives/name-validator.directive';
 
 @Component({
   selector: 'app-reg-form',
-  imports: [CommonModule, FormsModule, PassValidatorDirective],
+  imports: [CommonModule, FormsModule, PassValidatorDirective, NameValidatorDirective],
   templateUrl: './reg-form.component.html',
   styleUrl: './reg-form.component.css',
 })
