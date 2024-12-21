@@ -25,4 +25,8 @@ export class RegFormComponent {
   onSubmit(form: NgForm): void {
     console.log('You submitted value:', form);
   }
+
+  trackByFn(index: number, item: { message: string }): string {
+    return item.message;
+  }
 }

@@ -1,5 +1,3 @@
-<p>reg-form works!</p>
-
 <form #form="ngForm" (submit)="onSubmit(form)">
   <div>
     <input type="text" placeholder="First Name" name="name" required [(ngModel)]="user.name" />
@@ -18,17 +16,14 @@
       [(ngModel)]="user.password" />
   </div>
 
-  @if (passCheck.hasError('required') && passCheck.touched) {
-    <span class="error">* Password must be</span>
-  }
-  @if (passCheck.hasError('PassValidatorDirective') && passCheck.touched) {
-    <span class="error">* {{ passCheck.getError('PassValidatorDirective').message }}</span>
-  }
-  <span>
-    <pre>
-        PassValidatorDirective: {{ passCheck.hasError('PassValidatorDirective') }}
-    </pre>
-  </span>
+  <div class="error-block">
+    <div *ngIf="passCheck.hasError('PassValidatorDirective') && passCheck.touched">
+      <div *ngFor="let item of passCheck.getError('PassValidatorDirective'); trackBy: trackByFn">
+        <div class="error">* {{ item.message }}</div>
+      </div>
+    </div>
+  </div>
+
   <div>
     <button type="submit">Submit</button>
   </div>
