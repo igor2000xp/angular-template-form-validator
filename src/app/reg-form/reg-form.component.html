@@ -17,11 +17,11 @@
   </div>
 
   <div class="error-block">
-    <div *ngIf="passCheck.hasError('PassValidatorDirective') && passCheck.touched">
-      <div *ngFor="let item of passCheck.getError('PassValidatorDirective'); trackBy: trackByFn">
+    @if (passCheck.hasError('PassValidatorDirective') && passCheck.touched) {
+      @for (item of passCheck.getError('PassValidatorDirective'); track item.message) {
         <div class="error">* {{ item.message }}</div>
-      </div>
-    </div>
+      }
+    }
   </div>
 
   <div>
