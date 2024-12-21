@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { PassValidatorDirective } from '../share/directives/pass-validator.directive';
 import { NameValidatorDirective } from '../share/directives/name-validator.directive';
+import { EmailValidatorDirective } from '../share/directives/email-validator.directive';
 
 @Component({
   selector: 'app-reg-form',
-  imports: [CommonModule, FormsModule, PassValidatorDirective, NameValidatorDirective],
+  imports: [CommonModule, FormsModule, PassValidatorDirective, NameValidatorDirective, EmailValidatorDirective],
   templateUrl: './reg-form.component.html',
   styleUrl: './reg-form.component.css',
 })

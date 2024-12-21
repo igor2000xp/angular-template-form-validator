@@ -1,3 +1,4 @@
+<h2>Template-driven form with validation</h2>
 <form #form="ngForm" (submit)="onSubmit(form)">
   <div>
     <input
@@ -19,8 +20,25 @@
       }
     }
   </div>
+
   <div>
-    <input type="email" placeholder="Email" name="email" required [(ngModel)]="user.email" />
+    <input
+      appEmailValidator
+      #email="ngModel"
+      type="email"
+      placeholder="Email"
+      name="email"
+      required
+      [(ngModel)]="user.email" />
+  </div>
+  <div class="error-block email-errors">
+    @if (email.hasError('EmailValidatorDirective') && email.touched) {
+      @for (item of email.getError('EmailValidatorDirective'); track item.message) {
+        <div class="error">
+          <span>* {{ item.message }}</span>
+        </div>
+      }
+    }
   </div>
   <div>
     <input
